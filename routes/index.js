@@ -2,7 +2,9 @@ var express = require("express");
 var router = express.Router();
 const cache = require("./cache");
 const verifyToken = require("./verifyToken");
-
+router.get("/", (req, res) => {
+  res.send("Welcome to custom webserver");
+});
 router.get("/webhook", cache(300), async (request, response) => {
   // Extract token from request
   if (!request.get("Authorization")) {
