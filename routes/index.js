@@ -5,7 +5,7 @@ const verifyToken = require("./verifyToken");
 router.get("/", (req, res) => {
   res.send("Welcome to custom webserver");
 });
-router.get("/webhook", cache(300), async (request, response) => {
+router.get("/webhook", cache(5400), async (request, response) => {
   // Extract token from request
   if (!request.get("Authorization")) {
     return response.status(401).json({
